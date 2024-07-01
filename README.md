@@ -75,4 +75,3 @@ Para ejecutar el programa, simplemente corre el script Python:
 pip install SQLAlchemy
 python main.py
 ```
-Esta documentación proporciona una visión general del sistema de pago implementado, destacando sus componentes clave y cómo interactúan entre sí para proporcionar la funcionalidad completa de la tienda "Ho
