@@ -1,6 +1,24 @@
-# Tienda Hola Mundo Animal
+# Tienda Hola Mundo Animal - Proyecto Integrador
 
-### Modelos de Base de Datos
+Integrantes:
+* Quinteros, Mariana
+* Bazán Azargado, Ma. Emilia
+* Torres Urzua, Siro Ezequiel
+* Esteche, Yamila Eliana
+* Balmaceda, Adriana Verónica
+* Martinez, Fabricio 
+* Juan Beresiarte
+
+## Estructura del código
+El código se divide en varias secciones:
+1. Definición de modelos de datos (clases Producto y Compra)
+2. Definición de una clase Query para interactuar con la base de datos
+3. Definición de una clase TypedQuery que hereda de Query y agrega métodos específicos para interactuar con los modelos de datos
+4. Definición de funciones auxiliares para realizar operaciones específicas (e.g. elegir código postal, agregar producto, validar tarjeta de débito)
+5. Definición de la función main que inicia el programa y llama a las funciones auxiliares
+6. Definición de la función init_db que crea la base de datos y carga datos iniciales
+
+## Modelos de Base de Datos
 
 ![grafica_base_de_datos](/base_de_datos.png)
 
@@ -24,9 +42,9 @@
   - `pago_realizado`: Estado del pago.
   - `producto_id`: ID del producto comprado (clave foránea).
 
-### Clases y Métodos de Consulta
+## Clases y Métodos de Consulta
 
-#### `Query`
+### `Query`
 
 - **Métodos**:
   - `get_all(model)`: Retorna todos los registros de un modelo.
@@ -39,7 +57,7 @@
   - `execute_raw_query(raw_query)`: Ejecuta una consulta SQL en crudo.
   - `close_session()`: Cierra la sesión actual.
 
-#### `TypedQuery`
+### `TypedQuery`
 
 - **Métodos Específicos**:
   - `obtener_productos()`: Retorna todos los productos.
@@ -48,30 +66,18 @@
   - `obtener_compra(**kw)`: Retorna una compra que cumpla con los filtros especificados.
   - `registrar_compra(**kw)`: Registra una nueva compra en la base de datos.
 
-### Clases Auxiliares
+## Clases Auxiliares
 
 - `CompraActual`: Almacena temporalmente los detalles de la compra actual.
 
-### Funciones Auxiliares
+## Funciones Auxiliares
 
 - `elegir_codigo_postal(matriz)`: Permite al usuario seleccionar un código postal para calcular el costo de envío.
 - `agregar_producto(productos)`: Permite al usuario agregar un producto al carrito de compras.
 - `validar_tarjeta_debito()`: Valida y procesa el pago mediante tarjeta de débito.
 - `mostrar_mensaje_despedida()`: Muestra un mensaje de despedida al usuario.
 
-## Inicio del Programa
-
-El programa comienza ejecutando la función `main()`, que inicializa la interfaz gráfica y guía al usuario a través del proceso de compra.
-
-## Configuración de la Base de Datos
-
-Se utiliza SQLite como motor de base de datos. Al ejecutar el programa por primera vez, se inicializa la base de datos y se llenan los datos de ejemplo de productos mediante la función `init_db()`.
-
-## Ejecución
-
-Para ejecutar el programa, simplemente corre el script Python:
-
-```sh
-pip install SQLAlchemy
-python main.py
-```
+## Observaciones y propuestas de mejora sobre el Proyecto
+1. La función init_db carga datos iniciales en la base de datos, pero el codigo no proporciona una forma gráfica de agregar nuevos productos o editar los existentes.
+2. La función validar_tarjeta_debito no realiza una validación real de la tarjeta de débito, solo pide al usuario que ingrese los datos y los guarda en la base de datos.
+3. El código utiliza la biblioteca tkinter para crear una interfaz gráfica de usuario, pero no proporciona una forma de interactuar con la interfaz.
